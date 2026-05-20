@@ -20,6 +20,8 @@ url: >-
 specificationVersion: '0.19'
 apis: []
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/federallabs
   - type: Website
     url: https://www.federallabs.org/
 maintainers:
