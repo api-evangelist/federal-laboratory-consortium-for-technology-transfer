@@ -20,6 +20,8 @@ url: >-
 specificationVersion: '0.19'
 apis: []
 common:
+  - type: DomainSecurity
+    url: security/federal-laboratory-consortium-for-technology-transfer-domain-security.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/federallabs
   - type: Website
