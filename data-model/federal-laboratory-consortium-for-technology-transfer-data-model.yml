@@ -1,0 +1,62 @@
+generated: '2026-09-09'
+method: derived
+source: openapi/federal-laboratory-consortium-for-technology-transfer-greenbook-openapi.yml components.schemas
+note: A three-schema surface. The "section" property on SectionSearchResultItemDto is an untyped object (described
+  only as "Section id and title only"), so the Section entity itself is referenced but never defined in the
+  contract — it is recorded here as an undefined entity rather than invented.
+entities:
+- name: SectionSearchQueryDto
+  role: request
+  fields:
+  - name: query
+    type: string
+    required: true
+    max_length: 2000
+  - name: limit
+    type: number
+    required: false
+    default: 10
+    min: 1
+    max: 50
+- name: SectionSearchResponseDto
+  role: response
+  fields:
+  - name: answer
+    type: string
+    required: true
+    description: RAG-generated answer
+  - name: sections
+    type: array
+    required: true
+    items: SectionSearchResultItemDto
+  - name: cacheId
+    type: number
+    required: false
+    description: Cache entry id used to submit feedback
+- name: SectionSearchResultItemDto
+  role: response-item
+  fields:
+  - name: section
+    type: object
+    required: true
+    description: Section id and title only — shape not defined in the contract
+  - name: score
+    type: number
+    required: true
+    description: Similarity score 0-1
+- name: Section
+  role: undefined
+  fields: []
+  note: Referenced by SectionSearchResultItemDto.section and by the Green Book domain, but no schema is published.
+relationships:
+- from: SectionSearchResponseDto
+  to: SectionSearchResultItemDto
+  type: has_many
+  via: sections
+  evidence: $ref in items
+- from: SectionSearchResultItemDto
+  to: Section
+  type: has_one
+  via: section
+  evidence: property description; target schema undefined
+id_prefixes: []

@@ -1,0 +1,120 @@
+generated: '2026-09-09'
+method: probed
+source: live GET of the named /.well-known/ paths on every host this record knows
+note: No host serves any of the probed discovery documents. federallabs.org 302s every unknown path to /page-not-found;
+  www.federallabs.org 301s to the apex; api.federallabs.org returns a JSON 404 from the Nest/Express router;
+  engage.federallabs.org is a Higher Logic tenant whose 200s are the community SPA shell, not documents. business.federallabs.org
+  is unreachable (Cloudflare 530, "Site is frozen"). No WellKnown or SecurityTxt pointer is emitted, because
+  nothing returned a real document.
+hosts:
+- host: federallabs.org
+  documents:
+  - path: /.well-known/security.txt
+    status: 302
+    file: null
+    note: redirect to /page-not-found; no document
+  - path: /.well-known/openid-configuration
+    status: 302
+    file: null
+    note: redirect to /page-not-found; no document
+  - path: /.well-known/oauth-authorization-server
+    status: 302
+    file: null
+    note: redirect to /page-not-found; no document
+  - path: /.well-known/api-catalog
+    status: 302
+    file: null
+    note: redirect to /page-not-found; no document
+  - path: /.well-known/ai-plugin.json
+    status: 302
+    file: null
+    note: redirect to /page-not-found; no document
+- host: www.federallabs.org
+  documents:
+  - path: /.well-known/security.txt
+    status: 301
+    file: null
+    note: redirect to https://federallabs.org/; no document
+  - path: /.well-known/openid-configuration
+    status: 301
+    file: null
+    note: redirect to https://federallabs.org/; no document
+  - path: /.well-known/oauth-authorization-server
+    status: 301
+    file: null
+    note: redirect to https://federallabs.org/; no document
+  - path: /.well-known/api-catalog
+    status: 301
+    file: null
+    note: redirect to https://federallabs.org/; no document
+  - path: /.well-known/ai-plugin.json
+    status: 301
+    file: null
+    note: redirect to https://federallabs.org/; no document
+- host: api.federallabs.org
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+    note: JSON router 404 ("Cannot GET ...")
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+    note: JSON router 404 ("Cannot GET ...")
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+    note: JSON router 404 ("Cannot GET ...")
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+    note: JSON router 404 ("Cannot GET ...")
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+    note: JSON router 404 ("Cannot GET ...")
+- host: engage.federallabs.org
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: null
+    note: HTML SPA shell of the Higher Logic community, not a security.txt — treated as a MISS
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: null
+    note: HTML SPA shell, not OIDC metadata — treated as a MISS
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+    note: 'JSON error: "The MCP server is not enabled for tenant FEDERALLABS." The Higher Logic platform can
+      serve MCP/OAuth metadata but FLC has not enabled it.'
+  - path: /.well-known/api-catalog
+    status: 200
+    file: null
+    note: HTML SPA shell, not an api-catalog — treated as a MISS
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+    note: platform 404 page
+- host: business.federallabs.org
+  documents:
+  - path: /.well-known/security.txt
+    status: 530
+    file: null
+    note: Cloudflare 530 "Site is frozen" — origin unreachable
+  - path: /.well-known/openid-configuration
+    status: 530
+    file: null
+    note: Cloudflare 530 "Site is frozen" — origin unreachable
+  - path: /.well-known/oauth-authorization-server
+    status: 530
+    file: null
+    note: Cloudflare 530 "Site is frozen" — origin unreachable
+  - path: /.well-known/api-catalog
+    status: 530
+    file: null
+    note: Cloudflare 530 "Site is frozen" — origin unreachable
+  - path: /.well-known/ai-plugin.json
+    status: 530
+    file: null
+    note: Cloudflare 530 "Site is frozen" — origin unreachable

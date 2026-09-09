@@ -1,0 +1,23 @@
+generated: '2026-09-09'
+method: derived
+source: openapi/federal-laboratory-consortium-for-technology-transfer-greenbook-openapi.yml
+summary:
+  types:
+  - apiKey
+  - http
+  api_key_in:
+  - header
+schemes:
+- name: bearer
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  sources:
+  - openapi/federal-laboratory-consortium-for-technology-transfer-greenbook-openapi.yml
+- name: app-key
+  type: apiKey
+  in: header
+  parameter: app-key
+  description: Mobile app key (for sync-sections, mobile-app-sections, search)
+  sources:
+  - openapi/federal-laboratory-consortium-for-technology-transfer-greenbook-openapi.yml

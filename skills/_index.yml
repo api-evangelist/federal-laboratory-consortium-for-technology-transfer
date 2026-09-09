@@ -1,0 +1,13 @@
+generated: '2026-09-09'
+method: generated
+source: openapi/federal-laboratory-consortium-for-technology-transfer-greenbook-openapi.yml
+note: One packaged skill for the one published operation. Grounded in the real operationId SectionsController_searchSections;
+  no operation was invented.
+skills:
+- name: flc-greenbook-search
+  file: skills/federal-laboratory-consortium-for-technology-transfer-greenbook-search.md
+  api: FLC Greenbook API
+  operations:
+  - SectionsController_searchSections
+  description: Answer a question about US federal technology transfer legislation and policy with the FLC Green
+    Book RAG search API, returning the answer plus its source sections.

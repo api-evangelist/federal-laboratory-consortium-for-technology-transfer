@@ -1,0 +1,31 @@
+generated: '2026-09-09'
+method: derived
+source: openapi/federal-laboratory-consortium-for-technology-transfer-greenbook-openapi.yml
+status: candidate
+note: 'SEARCHED first: no FLC MCP server exists. No mcp.federallabs.org or /mcp endpoint; api.federallabs.org
+  returns a router 404 for every MCP path; the Higher Logic community at engage.federallabs.org replies "The
+  MCP server is not enabled for tenant FEDERALLABS" on /.well-known/oauth-authorization-server, so the platform
+  supports MCP but FLC has not turned it on. The tool below is DERIVED from the one published OpenAPI operation
+  and is a proposal, not a deployed surface. No endpoint URL is asserted.'
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: api-key
+  verified: derived
+tools:
+- name: greenbook_search
+  description: Ask a natural-language question about US federal technology transfer legislation and policy
+    and get a generated answer with the Green Book sections it came from.
+  backing_operation: SectionsController_searchSections
+  backing_rest: POST /v1/sections/search
+  input_schema_source: components.schemas.SectionSearchQueryDto
+  inputs:
+  - name: query
+    type: string
+    required: true
+  - name: limit
+    type: number
+    required: false
+  auth: app-key header (not self-service; issued for the FLC Green Book mobile app)

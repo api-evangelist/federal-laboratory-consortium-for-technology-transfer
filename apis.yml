@@ -1,11 +1,12 @@
 aid: federal-laboratory-consortium-for-technology-transfer
 name: Federal Laboratory Consortium for Technology Transfer
-description: >-
-  The Federal Laboratory Consortium for Technology Transfer (FLC) facilitates
-  knowledge and technology sharing across federal laboratories, and speeds the
-  adoption of new knowledge and technologies in the wider economy by
-  facilitating the sharing federal research with non-governmental public and
-  private entities.
+description: The Federal Laboratory Consortium for Technology Transfer (FLC) is the nationwide network of more than
+  300 federal laboratories, agencies and research centers chartered by the Federal Technology Transfer Act of 1986
+  to move federally funded research into the wider economy. The FLC runs the FLC Business search over federal lab
+  technologies and facilities, the interactive lab directory, the T2 Toolkit and Learning Center, and publishes
+  the Green Book (Federal Technology Transfer Legislation and Policy). Its one machine-readable API surface is the
+  public Greenbook API on api.federallabs.org, which backs the FLC Green Book mobile app with retrieval-augmented
+  search over federal tech transfer legislation and policy.
 type: Index
 deliveryModel:
   model: unknown
@@ -32,25 +33,107 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/federal-laboratory-consortium-for-technology-transfer.png
 access: 3rd-Party
 created: '2024-12-03'
-modified: '2026-04-28'
-position: Consuming
+modified: '2026-09-09'
+position: Producing
 tags:
-  - Federal-Government
-  - Technology Transfer
+- Federal-Government
+- Technology-Transfer
+- Research
+- Laboratories
+- Government
+- Innovation
+- Search
 tags_raw:
-  - Federal Government
-  - Technology Transfer
-url: >-
-  https://raw.githubusercontent.com/api-evangelist/federal-laboratory-consortium-for-technology-transfer/refs/heads/main/apis.yml
+- Federal Government
+- Technology Transfer
+- Research
+- Laboratories
+- Government
+- Innovation
+- Search
+url: https://raw.githubusercontent.com/api-evangelist/federal-laboratory-consortium-for-technology-transfer/refs/heads/main/apis.yml
 specificationVersion: '0.23'
-apis: []
+apis:
+- name: FLC Greenbook API
+  description: 'Public API behind the FLC Green Book mobile app. One published operation performs retrieval-augmented
+    search over the sections of the Green Book (Federal Technology Transfer Legislation and Policy): semantic retrieval,
+    LLM rerank, then a generated answer with the source sections that produced it. Gated by an app-key header issued
+    for the mobile app.'
+  humanURL: https://federallabs.org/learning-center/t2-toolkit/the-flc-greenbook
+  baseURL: https://api.federallabs.org
+  tags:
+  - Search
+  - Technology Transfer
+  - Documents
+  - RAG
+  properties:
+  - type: OpenAPI
+    url: openapi/federal-laboratory-consortium-for-technology-transfer-greenbook-openapi.yml
+  - type: Documentation
+    url: https://api.federallabs.org/docs
+  - type: APIReference
+    url: https://api.federallabs.org/docs
+  - type: Overlay
+    url: overlays/federal-laboratory-consortium-for-technology-transfer-greenbook-overlay.yaml
+  - type: DataModel
+    url: data-model/federal-laboratory-consortium-for-technology-transfer-data-model.yml
+  - type: ErrorCatalog
+    url: errors/federal-laboratory-consortium-for-technology-transfer-problem-types.yml
+  - type: RateLimits
+    url: rate-limits/federal-laboratory-consortium-for-technology-transfer-rate-limits.yml
+  - type: AgentSkill
+    url: skills/_index.yml
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/federal-laboratory-consortium-for-technology-transfer.png
 common:
-  - type: DomainSecurity
-    url: security/federal-laboratory-consortium-for-technology-transfer-domain-security.yml
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/federallabs
-  - type: Website
-    url: https://www.federallabs.org/
+- type: Website
+  url: https://www.federallabs.org/
+- type: Documentation
+  url: https://api.federallabs.org/docs
+- type: APIReference
+  url: https://api.federallabs.org/docs
+- type: TermsOfService
+  url: https://federallabs.org/website-user-agreement
+- type: Support
+  url: https://federallabs.org/contact
+- type: Blog
+  url: https://federallabs.org/communications/federal-lab-news
+- type: SignUp
+  url: https://portal.federallabs.org/account/login.aspx
+- type: LinkedIn
+  url: https://www.linkedin.com/company/federallabs
+- type: Authentication
+  url: authentication/federal-laboratory-consortium-for-technology-transfer-authentication.yml
+- type: Conventions
+  url: conventions/federal-laboratory-consortium-for-technology-transfer-conventions.yml
+- type: Conformance
+  url: conformance/federal-laboratory-consortium-for-technology-transfer-conformance.yml
+- type: ErrorCatalog
+  url: errors/federal-laboratory-consortium-for-technology-transfer-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/federal-laboratory-consortium-for-technology-transfer-lifecycle.yml
+- type: RateLimits
+  url: rate-limits/federal-laboratory-consortium-for-technology-transfer-rate-limits.yml
+- type: Plans
+  url: plans/federal-laboratory-consortium-for-technology-transfer-plans-pricing.yml
+- type: DataModel
+  url: data-model/federal-laboratory-consortium-for-technology-transfer-data-model.yml
+- type: Packages
+  url: packages/federal-laboratory-consortium-for-technology-transfer-packages.yml
+- type: X-MCPServerCandidate
+  url: mcp/federal-laboratory-consortium-for-technology-transfer-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: LLMsTxt
+  url: llms/federal-laboratory-consortium-for-technology-transfer-llms.txt
+- type: Overlay
+  url: overlays/federal-laboratory-consortium-for-technology-transfer-greenbook-overlay.yaml
+- type: DomainSecurity
+  url: security/federal-laboratory-consortium-for-technology-transfer-domain-security.yml
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
+x-enrichment:
+  date: '2026-09-09'
+  status: enriched
+  artifacts_added: 13
+  pass: local-v3

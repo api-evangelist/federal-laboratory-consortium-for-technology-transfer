@@ -1,0 +1,50 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements — FLC Greenbook API
+  version: 1.0.0
+extends: openapi/federal-laboratory-consortium-for-technology-transfer-greenbook-openapi.yml
+x-api-evangelist:
+  generated: '2026-09-09'
+  method: generated
+  source: derived from live probes of https://api.federallabs.org, 2026-09-09
+  note: Captures only what API Evangelist observed and added. The upstream spec is never mutated; the verbatim
+    harvest is at openapi/_original/.
+actions:
+- target: $.servers
+  description: 'The published spec ships servers: []. The host was established by probe: the spec is served
+    at api.federallabs.org/docs-json and the operation answers 401 there, not 404.'
+  update:
+  - url: https://api.federallabs.org
+    description: Production API host (probed 2026-09-09)
+- target: $.paths['/v1/sections/search'].post.responses
+  description: The contract declares only a 200. These 4xx responses were OBSERVED on the live endpoint and
+    are recorded as an overlay rather than written into the provider spec.
+  update:
+    '401':
+      description: Invalid or missing app-key header (observed 2026-09-09)
+      content:
+        application/json:
+          example:
+            message: Invalid or missing app-key header. Provide a valid key in the app-key header.
+            error: Unauthorized
+            statusCode: 401
+    '429':
+      description: 'Rate limit exceeded. X-RateLimit-Limit: 100 per 60s observed on live responses; the 429
+        status itself was NOT observed and is inferred from the emitting middleware.'
+- target: $.paths['/v1/sections/search'].post
+  description: Record the observed rate-limit signal alongside the operation.
+  update:
+    x-rate-limit:
+      limit: 100
+      window: 60s
+      headers:
+      - X-RateLimit-Limit
+      - X-RateLimit-Remaining
+      - X-RateLimit-Reset
+      source: probed
+- target: $.info
+  description: The published contract carries no contact or licence. FLC contact is public on its own site.
+  update:
+    contact:
+      name: Federal Laboratory Consortium for Technology Transfer
+      url: https://federallabs.org/contact

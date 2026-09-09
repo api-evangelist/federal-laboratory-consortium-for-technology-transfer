@@ -1,0 +1,78 @@
+generated: '2026-09-09'
+method: derived
+source: openapi/federal-laboratory-consortium-for-technology-transfer-greenbook-openapi.yml + observed responses
+  from https://api.federallabs.org
+auth:
+  style: api-key-header
+  header: app-key
+  note: A bearer/JWT scheme is declared in components.securitySchemes but is not applied to the one published
+    operation. See authentication/.
+request_context:
+  headers:
+  - name: x-session-id
+    required: true
+    purpose: Identifies the mobile session; used for metrics and queries-per-session. Marked required in the
+      spec parameters while the operation description calls it optional — a contradiction in the published
+      contract.
+idempotency:
+  coverage: none
+  mechanism: null
+  header: null
+  evidence: The contract publishes one operation, POST /v1/sections/search, which is a read-shaped search (semantic
+    retrieval + generated answer). It documents no Idempotency-Key header and no replay protection. There is
+    no other mutating operation in the published surface.
+  note: The response carries a cacheId and the description references POST /v1/sections/query-cache/:id/feedback,
+    which would be a write — but that operation is NOT declared in the published spec and is not asserted here.
+reversibility:
+  coverage: na
+  evidence: 'The published surface has no write operation: POST /v1/sections/search creates no provider-side
+    resource the caller owns. There is nothing to reverse, so reversibility is not applicable rather than absent.
+    No cancel/refund/void/undo/restore operation exists, and no window is asserted.'
+  write_surfaces: []
+dry_run:
+  coverage: na
+  evidence: no write surface; a dry-run mode has nothing to rehearse
+pagination:
+  style: limit-only
+  params:
+  - name: limit
+    in: body
+    default: 10
+    min: 1
+    max: 50
+  cursor: false
+  total_count: false
+  evidence: SectionSearchQueryDto.limit; no offset, page or cursor parameter exists
+field_expansion:
+  supported: false
+  evidence: no expand/fields/include parameter in the contract
+metadata:
+  supported: false
+  evidence: no metadata object on any schema
+request_id_tracing:
+  supported: false
+  evidence: no X-Request-Id or traceparent in the contract; none observed on the live 401 response
+versioning:
+  style: path-prefix
+  current: v1
+  evidence: /v1/sections/search
+error_envelope:
+  format: vendor-json
+  fields:
+  - message
+  - error
+  - statusCode
+  rfc9457: false
+  see: errors/federal-laboratory-consortium-for-technology-transfer-problem-types.yml
+rate_limit_signaling:
+  headers:
+  - X-RateLimit-Limit
+  - X-RateLimit-Remaining
+  - X-RateLimit-Reset
+  retry_after: false
+  see: rate-limits/federal-laboratory-consortium-for-technology-transfer-rate-limits.yml
+cross_links:
+  errors: errors/federal-laboratory-consortium-for-technology-transfer-problem-types.yml
+  lifecycle: lifecycle/federal-laboratory-consortium-for-technology-transfer-lifecycle.yml
+  authentication: authentication/federal-laboratory-consortium-for-technology-transfer-authentication.yml
+  rate_limits: rate-limits/federal-laboratory-consortium-for-technology-transfer-rate-limits.yml

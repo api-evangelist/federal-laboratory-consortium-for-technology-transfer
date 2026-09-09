@@ -1,0 +1,48 @@
+generated: '2026-09-09'
+method: searched
+source: https://api.federallabs.org/docs-json + probes of federallabs.org/status, /changelog
+versioning:
+  scheme: path-prefix
+  current: v1
+  evidence: the single published path is /v1/sections/search; info.version is "1.0"
+status_page:
+  present: false
+  url: null
+  evidence: https://federallabs.org/status 302s to /page-not-found; no statuspage.io/instatus/betteruptime
+    property found for federallabs.org
+deprecation_policy:
+  present: false
+  url: null
+  evidence: no deprecation or sunset policy published; no Deprecation or Sunset response headers observed on
+    https://api.federallabs.org/v1/sections/search
+sla:
+  present: false
+  evidence: none published
+changelog:
+  present: false
+  evidence: https://federallabs.org/changelog 302s to /page-not-found; the Swagger document carries no release
+    notes
+deprecated_operations: []
+retired_surfaces:
+- name: FLC Business JSON:API (v1.0)
+  base: https://www.federallabs.org/api/v1.0/
+  endpoints_documented:
+  - regions
+  - laboratories
+  - agencies
+  - available-technologies
+  - technology-areas
+  - technology-disciplines
+  status: retired
+  evidence: Documented at https://federallabs.org/developer-api-documentation, which now 302s to /page-not-found.
+    https://www.federallabs.org/api/v1.0/regions now returns a Cloudflare 301 to the site root rather than
+    a JSON:API document (probed 2026-09-09). Recorded from the surviving search-engine description of the FLC
+    page; the specification itself was never captured, so nothing about its schema is asserted here.
+  method: probed
+- name: FLC Business search (business.federallabs.org)
+  status: unreachable
+  evidence: https://business.federallabs.org/ returns Cloudflare 530 "Site is frozen" (probed 2026-09-09).
+    FLC Business search now routes to the vendor host https://search.wellspringsoftware.net/auth/flc/login.
+note: 'FLC publishes no versioning, deprecation, SLA or status commitment for the Greenbook API. No StatusPage
+  or Deprecation pointer is emitted because neither exists. The retired_surfaces block records a real, observed
+  decommission: the JSON:API developer surface FLC once documented is gone.'

@@ -1,0 +1,27 @@
+generated: '2026-09-09'
+method: searched
+source: registry.npmjs.org search, pypi.org/pypi/<name>/json, and the FLC site — no first-party client library
+  is published on any registry
+note: Searched npm ("federallabs", "greenbook", "flc-greenbook") and PyPI (flc-greenbook, federallabs, greenbook
+  — all 404). Nothing first-party exists. FLC distributes a consumer mobile app, not an SDK; the two app-store
+  listings are recorded as distributions, not packages, and no SDKs pointer is emitted because there is no
+  client library.
+package_count: 0
+packages: []
+app_distributions:
+- name: FLC Green Book (iOS)
+  registry: apple-app-store
+  official: true
+  url: https://apps.apple.com/us/app/flc-green-book/id6695758676
+  version: null
+  published: null
+  version_note: App Store listings expose no unauthenticated version metadata endpoint; not recorded rather
+    than guessed.
+- name: FLC Green Book (Android)
+  registry: google-play
+  official: true
+  url: https://play.google.com/store/apps/details?id=com.flc.greenbook
+  version: null
+  published: null
+  version_note: Google Play exposes no unauthenticated version metadata endpoint; not recorded rather than
+    guessed.

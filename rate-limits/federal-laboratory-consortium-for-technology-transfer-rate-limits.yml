@@ -1,0 +1,31 @@
+generated: '2026-09-09'
+method: probed
+source: observed response headers from POST https://api.federallabs.org/v1/sections/search on 2026-09-09
+note: FLC publishes no written rate-limit documentation — the developer API documentation page that Google
+  still indexes (federallabs.org/developer-api-documentation) now 302s to /page-not-found. The limit below
+  was read off the live wire, not from docs.
+limit_count: 1
+documented: false
+headers:
+- name: X-RateLimit-Limit
+  observed_value: '100'
+  description: Requests allowed in the window
+- name: X-RateLimit-Remaining
+  observed_value: '99'
+  description: Requests left in the current window
+- name: X-RateLimit-Reset
+  observed_value: '60'
+  description: Seconds until the window resets
+retry_after: false
+exhaustion_status: 429
+exhaustion_status_note: Inferred from the express-rate-limit default that emits these headers; NOT observed
+  — the limit was not exercised.
+rate_limits:
+- scope: per-client
+  window: 60s
+  limit: 100
+  burst: null
+  applies_to:
+  - POST /v1/sections/search
+  evidence: 'X-RateLimit-Limit: 100 / X-RateLimit-Reset: 60 on the unauthenticated 401 response, 2026-09-09'
+  method: probed

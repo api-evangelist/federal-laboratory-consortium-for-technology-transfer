@@ -1,0 +1,50 @@
+generated: '2026-09-09'
+method: derived
+source: openapi/federal-laboratory-consortium-for-technology-transfer-greenbook-openapi.yml + live probes of
+  https://api.federallabs.org
+note: Derived from the one published contract. The Greenbook API is a plain JSON-over-HTTPS REST surface with
+  a header API key; it declares no OAuth flows, no OpenID Connect, and no domain standard. domain_standard_conformance
+  is reward-only, so an honest false here is not a penalty.
+conformance:
+- id: openapi-3.0
+  conforms: true
+  evidence: 'https://api.federallabs.org/docs-json — openapi: "3.0.0" with a paths object; served by NestJS
+    Swagger'
+- id: rest-json
+  conforms: true
+  evidence: https://api.federallabs.org/v1/sections/search returns application/json; request and response bodies
+    are JSON
+- id: tls-https-only
+  conforms: true
+  evidence: api.federallabs.org negotiates TLSv1.3; probed 2026-09-09
+- id: api-key-header-auth
+  conforms: true
+  evidence: 'components.securitySchemes.app-key (apiKey, in: header) in the published spec'
+- id: oauth2
+  conforms: false
+  evidence: no oauth2 securityScheme in the spec; /.well-known/oauth-authorization-server 404s on api.federallabs.org
+- id: oidc
+  conforms: false
+  evidence: no openIdConnect securityScheme; /.well-known/openid-configuration returns no document on any host
+- id: rfc9457
+  conforms: false
+  evidence: observed 401 body is {"message","error","statusCode"} with content-type application/json, not application/problem+json
+- id: rfc6585-rate-limit-headers
+  conforms: true
+  evidence: 'observed response headers X-RateLimit-Limit: 100, X-RateLimit-Remaining, X-RateLimit-Reset on
+    https://api.federallabs.org/v1/sections/search (2026-09-09)'
+- id: idempotency
+  conforms: false
+  evidence: no Idempotency-Key header documented; the single POST is a read-shaped search with no persistent
+    write
+- id: pagination
+  conforms: false
+  evidence: the search operation takes a limit (1-50) but exposes no cursor, offset or page parameter
+- id: json-api
+  conforms: false
+  evidence: responses are plain JSON DTOs, not a JSON:API document. The retired federallabs.org/api/v1.0 surface
+    was JSON:API-shaped but now 301s to the site root.
+- id: domain-standard
+  conforms: false
+  evidence: the contract declares no technology-transfer or government domain standard (no OAI-PMH verbs, no
+    DCAT/Project Open Data catalog, no schema.org typing) in any path, schema or URN

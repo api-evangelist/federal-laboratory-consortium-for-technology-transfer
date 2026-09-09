@@ -1,0 +1,43 @@
+generated: '2026-09-09'
+method: probed
+source: openapi/federal-laboratory-consortium-for-technology-transfer-greenbook-openapi.yml (declared responses)
+  + observed live responses from https://api.federallabs.org/v1/sections/search on 2026-09-09
+format: vendor-json
+note: The published spec declares only a 200 response — no 4xx/5xx are documented, so there is nothing to derive
+  from the contract. Everything below was OBSERVED on the live endpoint. The envelope is the NestJS/Express
+  default and is not RFC 9457 (no type/title/detail/instance, content-type is application/json rather than
+  application/problem+json).
+envelope:
+  content_type: application/json; charset=utf-8
+  fields:
+  - name: message
+    type: string
+    description: Human-readable failure message
+  - name: error
+    type: string
+    description: Short reason phrase, e.g. "Unauthorized", "Not Found"
+  - name: statusCode
+    type: integer
+    description: Repeats the HTTP status code
+  example:
+    message: Invalid or missing app-key header. Provide a valid key in the app-key header.
+    error: Unauthorized
+    statusCode: 401
+problem_types:
+- id: unauthorized
+  status: 401
+  title: Invalid or missing app-key header
+  detail: The app-key header was absent or not recognised. The key is issued for the FLC Green Book mobile
+    app; there is no public self-service issuance.
+  remediation: Send a valid app-key request header. Contact FLC (https://federallabs.org/contact) for access.
+  observed: POST https://api.federallabs.org/v1/sections/search with no app-key — 401 on 2026-09-09
+  method: probed
+- id: not-found
+  status: 404
+  title: Route not found
+  detail: The router answers unknown paths with {"message":"Cannot GET <path>","error":"Not Found","statusCode":404}.
+  remediation: Use a path declared in the published OpenAPI. Only POST /v1/sections/search is published.
+  observed: GET https://api.federallabs.org/v1 — 404 on 2026-09-09
+  method: probed
+undocumented:
+- No 4xx or 5xx response is declared in the published OpenAPI; the two entries above are observed, not contractual.
