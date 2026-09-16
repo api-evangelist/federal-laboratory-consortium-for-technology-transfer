@@ -1,0 +1,14 @@
+{
+  "repo": "federal-laboratory-consortium-for-technology-transfer",
+  "feeds": [
+    {
+      "source": "https://federallabs.org/contact",
+      "feed_url": "https://federallabs.org/contact",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-09-13T13:00:00Z"
+}

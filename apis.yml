@@ -54,36 +54,28 @@ tags_raw:
 url: https://raw.githubusercontent.com/api-evangelist/federal-laboratory-consortium-for-technology-transfer/refs/heads/main/apis.yml
 specificationVersion: '0.23'
 apis:
-- name: FLC Greenbook API
-  description: 'Public API behind the FLC Green Book mobile app. One published operation performs retrieval-augmented
-    search over the sections of the Green Book (Federal Technology Transfer Legislation and Policy): semantic retrieval,
-    LLM rerank, then a generated answer with the source sections that produced it. Gated by an app-key header issued
-    for the mobile app.'
+- aid: >-
+    federal-laboratory-consortium-for-technology-transfer:federal-laboratory-consortium-for-technology-transfer-sections-api
+  name: Federal Laboratory Consortium for Technology Transfer Sections API
+  description: >-
+    The Sections API from Federal Laboratory Consortium for Technology Transfer — 1 operation(s) for sections.
   humanURL: https://federallabs.org/learning-center/t2-toolkit/the-flc-greenbook
   baseURL: https://api.federallabs.org
   tags:
-  - Search
-  - Technology Transfer
-  - Documents
-  - RAG
+  - Sections
   properties:
   - type: OpenAPI
-    url: openapi/federal-laboratory-consortium-for-technology-transfer-greenbook-openapi.yml
+    url: openapi/federal-laboratory-consortium-for-technology-transfer-sections-api-openapi.yml
   - type: Documentation
     url: https://api.federallabs.org/docs
   - type: APIReference
     url: https://api.federallabs.org/docs
-  - type: Overlay
-    url: overlays/federal-laboratory-consortium-for-technology-transfer-greenbook-overlay.yaml
   - type: DataModel
     url: data-model/federal-laboratory-consortium-for-technology-transfer-data-model.yml
   - type: ErrorCatalog
     url: errors/federal-laboratory-consortium-for-technology-transfer-problem-types.yml
   - type: RateLimits
     url: rate-limits/federal-laboratory-consortium-for-technology-transfer-rate-limits.yml
-  - type: AgentSkill
-    url: skills/_index.yml
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/federal-laboratory-consortium-for-technology-transfer.png
 common:
 - type: Website
   url: https://www.federallabs.org/
