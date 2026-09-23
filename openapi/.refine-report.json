@@ -1,0 +1,23 @@
+{
+  "provider": "federal-laboratory-consortium-for-technology-transfer",
+  "sources": [
+    "_original/federal-laboratory-consortium-for-technology-transfer-greenbook-openapi.json"
+  ],
+  "outputs": [
+    "federal-laboratory-consortium-for-technology-transfer-sections-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "1 archived document(s) dropped as subsets of other archived documents",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "federal-laboratory-consortium-for-technology-transfer-greenbook-openapi.json: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "federal-laboratory-consortium-for-technology-transfer-greenbook-openapi.json: declared missing tag: Sections",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "_original/federal-laboratory-consortium-for-technology-transfer-greenbook-openapi.yml: archived document superseded by a larger archived document",
+    "federal-laboratory-consortium-for-technology-transfer-sections-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
+}

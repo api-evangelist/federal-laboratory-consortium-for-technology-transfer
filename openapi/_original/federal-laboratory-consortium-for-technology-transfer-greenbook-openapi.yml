@@ -1,3 +1,5 @@
+# x-archived-from: federal-laboratory-consortium-for-technology-transfer-greenbook-openapi.yml
+# x-archived-on: 2026-09-16
 openapi: 3.0.0
 paths:
   /v1/sections/search:
