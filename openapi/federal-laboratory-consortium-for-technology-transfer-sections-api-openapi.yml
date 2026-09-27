@@ -38,22 +38,6 @@ paths:
       - Sections
 components:
   schemas:
-    SectionSearchQueryDto:
-      type: object
-      properties:
-        query:
-          type: string
-          description: Search query message (e.g. user question or topic)
-          example: What are the penalties for tax evasion?
-          maxLength: 2000
-        limit:
-          type: number
-          description: 'Maximum number of sections to return (default: 10, max: 50)'
-          default: 10
-          minimum: 1
-          maximum: 50
-      required:
-      - query
     SectionSearchResponseDto:
       type: object
       properties:
@@ -73,6 +57,22 @@ components:
       required:
       - answer
       - sections
+    SectionSearchQueryDto:
+      type: object
+      properties:
+        query:
+          type: string
+          description: Search query message (e.g. user question or topic)
+          example: What are the penalties for tax evasion?
+          maxLength: 2000
+        limit:
+          type: number
+          description: 'Maximum number of sections to return (default: 10, max: 50)'
+          default: 10
+          minimum: 1
+          maximum: 50
+      required:
+      - query
     SectionSearchResultItemDto:
       type: object
       properties:
