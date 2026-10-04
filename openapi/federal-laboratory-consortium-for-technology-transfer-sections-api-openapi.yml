@@ -57,6 +57,19 @@ components:
       required:
       - answer
       - sections
+    SectionSearchResultItemDto:
+      type: object
+      properties:
+        section:
+          type: object
+          description: Section id and title only
+        score:
+          type: number
+          description: Similarity score (0–1, higher = more similar)
+          example: 0.87
+      required:
+      - section
+      - score
     SectionSearchQueryDto:
       type: object
       properties:
@@ -73,19 +86,6 @@ components:
           maximum: 50
       required:
       - query
-    SectionSearchResultItemDto:
-      type: object
-      properties:
-        section:
-          type: object
-          description: Section id and title only
-        score:
-          type: number
-          description: Similarity score (0–1, higher = more similar)
-          example: 0.87
-      required:
-      - section
-      - score
   securitySchemes:
     bearer:
       scheme: bearer
