@@ -1,4 +1,4 @@
-# Federal Laboratory Consortium for Technology Transfer (federal-laboratory-consortium-for-technology-transfer)
+# Federal Laboratory Consortium for Technology Transfer
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,29 +64,114 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-The Federal Laboratory Consortium for Technology Transfer (FLC) facilitates knowledge and technology sharing across federal laboratories, and speeds the adoption of new knowledge and technologies in the wider economy by facilitating the sharing federal research with non-governmental public and private entities.
+The Federal Laboratory Consortium for Technology Transfer (FLC) is the nationwide network of more than 300 federal laboratories, agencies and research centers chartered by the Federal Technology Transfer Act of 1986 to move federally funded research into the wider economy. The FLC runs the FLC Business search over federal lab technologies and facilities, the interactive lab directory, the T2 Toolkit and Learning Center, and publishes the Green Book (Federal Technology Transfer Legislation and Policy). Its one machine-readable API surface is the public Greenbook API on api.federallabs.org, which backs the FLC Green Book mobile app with retrieval-augmented search over federal tech transfer legislation and policy.
 
-**URL:** [Visit APIs.json URL](
-https://raw.githubusercontent.com/api-evangelist/federal-laboratory-consortium-for-technology-transfer/refs/heads/main/apis.yml   )
+**Areas:** Federal Government · Technology-Transfer · Research · Laboratories · Government · Innovation · Search
 
-## Scope
+## Federal Laboratory Consortium for Technology Transfer on APIs.io
 
-- **Type:** Contract 
-- **Position:** Consuming 
-- **Access:** 3rd-Party 
+Everything profiled for Federal Laboratory Consortium for Technology Transfer is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/federal-laboratory-consortium-for-technology-transfer/](https://apis.io/providers/federal-laboratory-consortium-for-technology-transfer/)** — or go straight to one of the APIs or properties below.
 
-## Tags:
+### APIs (1)
 
- - Federal Government
+- [Federal Laboratory Consortium for Technology Transfer Sections API](https://apis.io/apis/federal-laboratory-consortium-for-technology-transfer/federal-laboratory-consortium-for-technology-transfer-sections-api/) — The Sections API from Federal Laboratory Consortium for Technology Transfer — 1 operation(s) for sections.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2024-12-03 
-- **Modified:** 2026-04-28 
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## Maintainers
+#### MCP servers (1)
 
-**FN:** Kin Lane
+Model Context Protocol servers that expose the API to agents.
 
-**Email:** kin@apievangelist.com
+- [federal-laboratory-consortium-for-technology-transfer-mcp.yml](https://apis.io/servers/federal-laboratory-consortium-for-technology-transfer/federal-laboratory-consortium-for-technology-transfer-mcp-yml/)
 
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Federal Laboratory Consortium For Technology Transfer Greenbook Overlay](https://apis.io/overlays/federal-laboratory-consortium-for-technology-transfer/federal-laboratory-consortium-for-technology-transfer-greenbook-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Federal Laboratory Consortium For Technology Transfer Authentication](https://apis.io/security/federal-laboratory-consortium-for-technology-transfer/federal-laboratory-consortium-for-technology-transfer-authentication/)
+- [Federal Laboratory Consortium For Technology Transfer Domain Security](https://apis.io/security/federal-laboratory-consortium-for-technology-transfer/federal-laboratory-consortium-for-technology-transfer-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Federal Laboratory Consortium For Technology Transfer Plans Pricing](https://apis.io/plans/federal-laboratory-consortium-for-technology-transfer/federal-laboratory-consortium-for-technology-transfer-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Federal Laboratory Consortium For Technology Transfer Rate Limits](https://apis.io/rate-limits/federal-laboratory-consortium-for-technology-transfer/federal-laboratory-consortium-for-technology-transfer-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.federallabs.org/)
+- [Documentation](https://api.federallabs.org/docs)
+- [API reference](https://api.federallabs.org/docs)
+- [Sign up](https://portal.federallabs.org/account/login.aspx)
+- [Support](https://federallabs.org/contact)
+- [Blog](https://federallabs.org/communications/federal-lab-news)
+- [Terms of service](https://federallabs.org/website-user-agreement)
+
+## API Evangelist rating
+
+**Kin Score 33.3** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 40.4 |
+| Contract governance | 4.5 |
+| Operational transparency | 21.1 |
+| Developer ergonomics | 37.5 |
+| Access clarity | 23.7 |
+
+**Agent readiness 21.8** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 20.6** — Government & Public Sector
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/federal-laboratory-consortium-for-technology-transfer/](https://apis.io/providers/federal-laboratory-consortium-for-technology-transfer/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Federal Laboratory Consortium for Technology Transfer: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/federal-laboratory-consortium-for-technology-transfer/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
